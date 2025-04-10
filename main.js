@@ -795,44 +795,6 @@ updateDimensions();
 // Add resize event listener to update dimensions
 window.addEventListener('resize', updateDimensions);
 
-document.addEventListener('DOMContentLoaded', function() {
-  var box = document.querySelector(".scrollToTop");
-  if (box) {
-    var water = box.querySelector(".water");
 
-    window.addEventListener('scroll', function() {
-      var scrollPosition = window.scrollY;
-      var percent = Math.min(
-        Math.floor((scrollPosition / documentHeight) * 100),
-        100
-      );
-      water.style.transform = "translate(0," + (100 - percent) + "%)";
-
-      if (scrollPosition >= 200) {
-        box.style.display = 'block';
-      } else {
-        box.style.display = 'none';
-      }
-    });
-
-    // Add click event listener to scroll to top
-    box.addEventListener('click', function() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-  }
-
-  // Preloader functionality
-  function removePreloader() {
-    document.body.classList.remove("preloader-active");
-  }
-
-  document.body.classList.add("preloader-active");
-  window.addEventListener('load', function() {
-    removePreloader();
-  });
-});
 
 
